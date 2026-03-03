@@ -5,6 +5,7 @@ import {
   uploadDocument,
   deleteDocument,
   downloadDocument,
+  viewDocument,
 } from '../lib/documents'
 
 export function useDocuments(roomId: string, folderId: string | null) {
@@ -50,6 +51,16 @@ export function useDownloadDocument(roomId: string) {
   return useMutation({
     mutationFn: ({ documentId, fileName }: { documentId: string; fileName: string }) =>
       downloadDocument(roomId, documentId, fileName),
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+}
+
+export function useViewDocument(roomId: string) {
+  return useMutation({
+    mutationFn: ({ documentId }: { documentId: string }) =>
+      viewDocument(roomId, documentId),
     onError: (error) => {
       toast.error(error.message)
     },

@@ -67,3 +67,21 @@ export async function downloadDocument(roomId: string, documentId: string, fileN
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 }
+
+export async function viewDocument(roomId: string, documentId: string) {
+  const token = (await supabase.auth.getSession()).data.session?.access_token
+  const response = await fetch(`/api/rooms/${roomId}/documents/${documentId}/view`, {
+    headers: {
+      ...(token && { Authorization: `Bearer ${token}` }),
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error(`View failed: ${response.status}`)
+  }
+
+  const blob = await response.blob()
+  const url = URL.createObjectURL(blob)
+  window.open(url, '_blank')
+  setTimeout(() => URL.revokeObjectURL(url), 10_000)
+}

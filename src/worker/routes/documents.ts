@@ -115,6 +115,64 @@ documents.get('/:documentId/download', requireAuth, requireRoomMember, async (c)
   })
 })
 
+// GET /:documentId/view -- view document inline
+documents.get('/:documentId/view', requireAuth, requireRoomMember, async (c) => {
+  const user = c.get('user')
+  const roomId = c.get('roomId')
+  const documentId = c.req.param('documentId')
+
+  const supabase = createServiceRoleClient(c.env)
+  const doc = await fetchDocument(supabase, documentId)
+
+  if (!doc || doc.room_id !== roomId) {
+    return c.json({ success: false, error: 'Document not found' }, 404)
+  }
+
+  const r2Object = await c.env.VDR_R2.get(doc.r2_key)
+  if (!r2Object) {
+    return c.json({ success: false, error: 'File not found in storage' }, 404)
+  }
+
+  await insertAuditLog(supabase, {
+    room_id: roomId,
+    user_id: user.id,
+    action: 'document_viewed',
+    target_id: doc.id,
+    target_name: doc.name,
+    ip_address: c.req.header('cf-connecting-ip') ?? null,
+    user_agent: c.req.header('user-agent') ?? null,
+  })
+
+  const asciiName = doc.name.replace(/[^\x20-\x7E]/g, '_')
+  const utf8Name = encodeURIComponent(doc.name)
+  const contentDisposition = `inline; filename="${asciiName}"; filename*=UTF-8''${utf8Name}`
+
+  if (doc.content_type === 'application/pdf') {
+    const pdfBytes = await r2Object.arrayBuffer()
+    const watermarked = await applyWatermark(
+      pdfBytes,
+      c.env.WATERMARK_TEXT,
+      user.email,
+      new Date().toISOString().slice(0, 10)
+    )
+    return new Response(watermarked.buffer as ArrayBuffer, {
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': contentDisposition,
+        'Cache-Control': 'no-store',
+      },
+    })
+  }
+
+  return new Response(r2Object.body, {
+    headers: {
+      'Content-Type': doc.content_type,
+      'Content-Disposition': contentDisposition,
+      'Content-Length': String(doc.file_size),
+    },
+  })
+})
+
 // DELETE /:documentId -- delete document
 documents.delete('/:documentId', requireAuth, requireRoomAdmin, async (c) => {
   const user = c.get('user')

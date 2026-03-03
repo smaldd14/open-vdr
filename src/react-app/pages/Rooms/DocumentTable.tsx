@@ -1,4 +1,4 @@
-import { Download, Trash2 } from 'lucide-react'
+import { Download, Eye, Trash2 } from 'lucide-react'
 import { Button } from '@/react-app/components/ui/button'
 import { Skeleton } from '@/react-app/components/ui/skeleton'
 import {
@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/react-app/components/ui/table'
 import type { Document } from '@/react-app/lib/documents'
-import { useDeleteDocument, useDownloadDocument } from '@/react-app/hooks/useDocuments'
+import { useDeleteDocument, useDownloadDocument, useViewDocument } from '@/react-app/hooks/useDocuments'
 import { formatDate } from '@/react-app/lib/date-utils'
 
 function formatFileSize(bytes: number) {
@@ -34,6 +34,7 @@ export function DocumentTable({
 }) {
   const deleteDoc = useDeleteDocument(roomId, folderId)
   const downloadDoc = useDownloadDocument(roomId)
+  const viewDoc = useViewDocument(roomId)
 
   if (isLoading) {
     return (
@@ -75,6 +76,14 @@ export function DocumentTable({
             </TableCell>
             <TableCell>
               <div className="flex items-center gap-1 justify-end">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="size-8"
+                  onClick={() => viewDoc.mutate({ documentId: doc.id })}
+                >
+                  <Eye className="size-4" />
+                </Button>
                 <Button
                   variant="ghost"
                   size="icon"
