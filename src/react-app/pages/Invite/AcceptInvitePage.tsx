@@ -13,7 +13,7 @@ export function AcceptInvitePage() {
   const acceptInvite = useAcceptInvite()
   const acceptedRef = useRef(false)
 
-  // Auto-accept when logged in
+  // Auto-accept when signed in
   useEffect(() => {
     if (!session || !invite || !token || acceptedRef.current || acceptInvite.isPending) return
     acceptedRef.current = true
