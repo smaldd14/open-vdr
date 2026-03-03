@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import type { Folder } from '@/react-app/lib/folders'
 import {
   Breadcrumb,
@@ -27,24 +28,26 @@ export function FolderBreadcrumb({
           const label = folderId ? folderMap.get(folderId)?.name ?? 'Unknown' : 'All Files'
 
           return (
-            <BreadcrumbItem key={folderId ?? 'root'}>
+            <Fragment key={folderId ?? 'root'}>
               {index > 0 && <BreadcrumbSeparator />}
-              {isLast ? (
-                <BreadcrumbPage>{label}</BreadcrumbPage>
-              ) : (
-                <BreadcrumbLink
-                  role="button"
-                  tabIndex={0}
-                  className="cursor-pointer"
-                  onClick={() => onNavigate(index)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') onNavigate(index)
-                  }}
-                >
-                  {label}
-                </BreadcrumbLink>
-              )}
-            </BreadcrumbItem>
+              <BreadcrumbItem>
+                {isLast ? (
+                  <BreadcrumbPage>{label}</BreadcrumbPage>
+                ) : (
+                  <BreadcrumbLink
+                    role="button"
+                    tabIndex={0}
+                    className="cursor-pointer"
+                    onClick={() => onNavigate(index)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') onNavigate(index)
+                    }}
+                  >
+                    {label}
+                  </BreadcrumbLink>
+                )}
+              </BreadcrumbItem>
+            </Fragment>
           )
         })}
       </BreadcrumbList>
