@@ -1,0 +1,18 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.worker.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@types": ["./src/types/*"],
+      "@components/*": ["./src/react-app/components/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/react-app/pages/*"]
+    }
+  }
+}
