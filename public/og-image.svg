@@ -1,40 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#f3e8ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fce7f3;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#9333ea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  <rect width="1200" height="630" fill="#F5F1EB"/>
 
-  <!-- Building icon -->
-  <g transform="translate(100, 200)">
-    <rect width="120" height="150" fill="white" rx="6" stroke="url(#text-gradient)" stroke-width="4"/>
-    <rect x="20" y="30" width="25" height="25" fill="#2563eb"/>
-    <rect x="50" y="30" width="25" height="25" fill="#2563eb"/>
-    <rect x="80" y="30" width="25" height="25" fill="#2563eb"/>
-    <rect x="20" y="65" width="25" height="25" fill="#9333ea"/>
-    <rect x="50" y="65" width="25" height="25" fill="#9333ea"/>
-    <rect x="80" y="65" width="25" height="25" fill="#9333ea"/>
-    <rect x="20" y="100" width="25" height="50" fill="#ec4899"/>
-    <rect x="80" y="100" width="25" height="25" fill="#ec4899"/>
+  <!-- Logo mark (overlapping squares, large) -->
+  <g transform="translate(120, 180)">
+    <!-- Top-left square -->
+    <rect x="0" y="0" width="180" height="180" fill="none" stroke="#8EAB87" stroke-width="14"/>
+    <!-- Bottom-right square -->
+    <rect x="90" y="90" width="180" height="180" fill="none" stroke="#4E7252" stroke-width="14"/>
+    <!-- Intersection fill -->
+    <rect x="90" y="90" width="90" height="90" fill="#C8DBC5"/>
   </g>
 
   <!-- Text content -->
-  <text x="280" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="url(#text-gradient)">PM Agent</text>
-  <text x="280" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="#1e293b">AI-Powered Property Management</text>
-  <text x="280" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#64748b">Automate operations with human-level precision</text>
-
-  <!-- Decorative elements -->
-  <circle cx="1000" cy="150" r="80" fill="#2563eb" opacity="0.1"/>
-  <circle cx="1100" cy="500" r="60" fill="#9333ea" opacity="0.1"/>
-  <circle cx="900" cy="450" r="100" fill="#ec4899" opacity="0.1"/>
+  <text x="480" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="bold" fill="#1E1B14">Open VDR</text>
+  <text x="480" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="40" fill="#4E7252">Virtual Data Room</text>
+  <text x="480" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#6B7280">Secure document sharing for due diligence,</text>
+  <text x="480" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#6B7280">M&amp;A, and fundraising.</text>
 </svg>
