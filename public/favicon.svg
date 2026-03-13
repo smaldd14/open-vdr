@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <!-- Top-left square -->
-  <rect x="10" y="10" width="55" height="55" fill="none" stroke="#8EAB87" stroke-width="7"/>
+  <rect x="8" y="8" width="52" height="52" fill="none" stroke="#1A1A2E" stroke-width="6"/>
   <!-- Bottom-right square -->
-  <rect x="35" y="35" width="55" height="55" fill="none" stroke="#4E7252" stroke-width="7"/>
+  <rect x="40" y="40" width="52" height="52" fill="none" stroke="#1A1A2E" stroke-width="6"/>
   <!-- Intersection fill -->
-  <rect x="35" y="35" width="30" height="30" fill="#C8DBC5"/>
+  <rect x="40" y="40" width="20" height="20" fill="#E87040"/>
 </svg>

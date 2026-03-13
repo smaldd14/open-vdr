@@ -1,20 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <!-- Background -->
-  <rect width="1200" height="630" fill="#F5F1EB"/>
+  <rect width="1200" height="630" fill="#FFFFFF"/>
 
-  <!-- Logo mark (overlapping squares, large) -->
-  <g transform="translate(120, 180)">
+  <!-- Logo mark -->
+  <g transform="translate(100, 165)">
+    <!-- Outer frame -->
+    <rect x="4" y="4" width="292" height="292" fill="none" stroke="#1A1A2E" stroke-width="5"/>
+    <!-- Corner brackets: top-left -->
+    <line x1="4" y1="34" x2="4" y2="4" stroke="#E87040" stroke-width="9"/>
+    <line x1="4" y1="4" x2="34" y2="4" stroke="#E87040" stroke-width="9"/>
+    <!-- Corner brackets: top-right -->
+    <line x1="296" y1="34" x2="296" y2="4" stroke="#E87040" stroke-width="9"/>
+    <line x1="296" y1="4" x2="266" y2="4" stroke="#E87040" stroke-width="9"/>
+    <!-- Corner brackets: bottom-left -->
+    <line x1="4" y1="266" x2="4" y2="296" stroke="#E87040" stroke-width="9"/>
+    <line x1="4" y1="296" x2="34" y2="296" stroke="#E87040" stroke-width="9"/>
+    <!-- Corner brackets: bottom-right -->
+    <line x1="296" y1="266" x2="296" y2="296" stroke="#E87040" stroke-width="9"/>
+    <line x1="296" y1="296" x2="266" y2="296" stroke="#E87040" stroke-width="9"/>
     <!-- Top-left square -->
-    <rect x="0" y="0" width="180" height="180" fill="none" stroke="#8EAB87" stroke-width="14"/>
+    <rect x="44" y="44" width="130" height="130" fill="none" stroke="#1A1A2E" stroke-width="9"/>
     <!-- Bottom-right square -->
-    <rect x="90" y="90" width="180" height="180" fill="none" stroke="#4E7252" stroke-width="14"/>
+    <rect x="126" y="126" width="130" height="130" fill="none" stroke="#1A1A2E" stroke-width="9"/>
     <!-- Intersection fill -->
-    <rect x="90" y="90" width="90" height="90" fill="#C8DBC5"/>
+    <rect x="126" y="126" width="48" height="48" fill="#FDF0E8"/>
   </g>
 
-  <!-- Text content -->
-  <text x="480" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="bold" fill="#1E1B14">Open VDR</text>
-  <text x="480" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="40" fill="#4E7252">Virtual Data Room</text>
-  <text x="480" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#6B7280">Secure document sharing for due diligence,</text>
-  <text x="480" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#6B7280">M&amp;A, and fundraising.</text>
+  <!-- Text -->
+  <text x="480" y="255" font-family="Poppins, system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#1A1A2E">Realty Pilot Suite</text>
+  <text x="480" y="335" font-family="Poppins, system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#E87040">VDR</text>
+  <text x="484" y="400" font-family="Poppins, system-ui, -apple-system, sans-serif" font-size="28" fill="#9CA3AF">Secure document sharing for due diligence,</text>
+  <text x="484" y="438" font-family="Poppins, system-ui, -apple-system, sans-serif" font-size="28" fill="#9CA3AF">M&amp;A, and fundraising.</text>
 </svg>
