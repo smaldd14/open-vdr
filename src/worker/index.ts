@@ -28,7 +28,7 @@ app.use("/api/*", (c, next) => {
 });
 
 // Health check
-app.get("/api/", (c) => c.json({ name: "Open VDR API", status: "healthy" }));
+app.get("/api/", (c) => c.json({ name: "RPS VDR API", status: "healthy" }));
 
 app.route('/api/rooms/:roomId/documents', documents);
 app.route('/api/rooms/:roomId/invitations', invitations);

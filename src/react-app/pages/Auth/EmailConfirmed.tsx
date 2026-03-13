@@ -17,7 +17,7 @@ export function EmailConfirmedPage() {
             <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Open VDR
+            RPS VDR
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
